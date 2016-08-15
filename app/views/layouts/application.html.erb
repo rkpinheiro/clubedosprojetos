@@ -1,14 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Clubedosprojetos</title>
+<head>
     <%= csrf_meta_tags %>
+    <!--  Document Settings  -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+    <!--  Page Meta  -->
+    <title>Clube dos Projetos</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    <!--  Mobile Meta  -->
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--  Brand icon  -->
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+
+	<!-- Styles'n'  -->
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
 
-  <body>
-    <%= yield %>
-  </body>
+
+    <!--  Ghost outputs important style and meta data with this tag  -->
+</head>
+<body class="{{body_class}} nav-closed">
+
+    <!--  The blog navigation links  -->
+	<div class="nav">
+	    <h3 class="nav-title">Menu</h3>
+	    <a href="#" class="nav-close">
+	        <span class="hidden">Close</span>
+	    </a>
+	    <ul>
+	    	<li><a href="">a</a></li>
+	    	<li><a href="">b</a></li>
+	    	<li><a href="">c</a></li>
+	    	<li><a href="">d</a></li>
+	    </ul>
+        <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
+	</div>
+	<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!--  All the main content gets inserted here, index.hbs, post.hbs, etc  -->
+	    <%= yield %>
+
+        <!--  The tiny footer at the very bottom  -->
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="{{@blog.url}}"> sample </a> &copy; date</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+</body>
 </html>

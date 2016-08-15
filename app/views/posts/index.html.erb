@@ -1,31 +1,41 @@
-<p id="notice"><%= notice %></p>
+<header class="main-header" style="background-image: url(<%= asset_path 'cover-clube-dos-projetos.jpg' %>)">
+    <nav class="main-nav overlay clearfix">
+        <a class="blog-logo" href="{{@blog.url}}"><img src="<%= asset_path 'logo.png' %>" alt="Clube dos Projetos" /></a>
+        {{#if @blog.navigation}}
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        {{/if}}
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">{{@blog.title}}</h1>
+            <h2 class="page-description">{{@blog.description}}</h2>
+        </div>
+    </div>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+</header>
 
-<h1>Posts</h1>
+<main id="content" class="content" role="main">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <p id="notice"><%= notice %></p>
+    
+    <div class="extra-pagination inner">
+        {{pagination}}
+    </div>
 
-  <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= post.image %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="<%= link_to 'post_path' %>"><%= post.title %></a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p><%= post.content %> <a class="read-more" href="{{url}}">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="{{author.image}}" alt="{{author.name}}" nopin="nopin" />
+            Martin Luther King on Facebook 
+            <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}"><%=post.created_at %></time>
+        </footer>
+    </article>
     <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Post', new_post_path %>
+</main>
