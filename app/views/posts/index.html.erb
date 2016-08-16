@@ -1,14 +1,13 @@
 <header class="main-header" style="background-image: url(<%= asset_path 'cover-clube-dos-projetos.jpg' %>)">
+    <div class="dark-slice-for-the-cover"></div>
     <nav class="main-nav overlay clearfix">
-        <a class="blog-logo" href="{{@blog.url}}"><img src="<%= asset_path 'logo.png' %>" alt="Clube dos Projetos" /></a>
-        {{#if @blog.navigation}}
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-        {{/if}}
+        <a class="blog-logo" href="<%= request.base_url %>"><img src="<%= asset_path 'logo.png' %>" alt="Clube dos Projetos" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">{{@blog.title}}</h1>
-            <h2 class="page-description">{{@blog.description}}</h2>
+            <h1 class="page-title">Clube dos projetos</h1>
+            <h2 class="page-description">faça parte do clube mais blá blá blá do Brasil</h2>
         </div>
     </div>
     <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
@@ -23,19 +22,25 @@
     </div>
 
     <% @posts.each do |post| %>
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="<%= link_to 'post_path' %>"><%= post.title %></a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p><%= post.content %> <a class="read-more" href="{{url}}">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="{{author.image}}" alt="{{author.name}}" nopin="nopin" />
-            Martin Luther King on Facebook 
-            <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}"><%=post.created_at %></time>
-        </footer>
-    </article>
+      <article class="post">
+          <header class="post-header">
+              <h2 class="post-title"><a href="<%= post_path(post) %>"><%= post.title %></a></h2>
+          </header>
+          <section class="post-excerpt">
+              <img src="<%= asset_path 'post-cover.png' %>" alt=""> 
+              <p><%= post.content %> <a class="read-more" href="{{url}}">&raquo;</a></p>
+          </section>
+          <footer class="post-meta">
+              <img class="author-thumb" src="<%= asset_path 'perfil.jpg' %>" alt="Rurik S. Pinheiro" nopin="nopin" />
+              <a href="">Rurik Pinheiro</a> em <a href="#">Arquitetura</a>  
+              <time class="post-date" ><%= post.created_at.strftime("%d/%m/%Y - %H:%M")%></time>
+          </footer>
+      </article>
     <% end %>
+
+    <nav class="pagination" role="navigation">
+        <span class="page-number">Página 1 de 2</span>
+            <a class="older-posts" href="#">Próximo <span aria-hidden="true">→</span></a>
+    </nav>
 
 </main>

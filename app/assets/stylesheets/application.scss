@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+.dark-slice-for-the-cover{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    opacity: 0.93;
+    top: 0;
+}
+
+section.post-excerpt img{
+	width: 100%;
+}
