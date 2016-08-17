@@ -1,5 +1,5 @@
-<header class="main-header post-head" style="background-image: url(<%= asset_path @post.image %>)">
-    <nav class="main-nav overlay clearfix">
+<header class="main-header post-head <%= 'no-cover' if @post.image.blank? %>" style="<%= 'background-image: url('+ asset_path(@post.image) +')' if not @post.image.blank? %>" >
+    <nav class="main-nav clearfix">
         <a class="blog-logo" href="<%= request.base_url %>"><img src="<%= asset_path 'logo.png' %>" alt="Clube dos Projetos" /></a>
         <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
     </nav>
