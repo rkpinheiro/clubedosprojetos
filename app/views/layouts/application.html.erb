@@ -4,7 +4,7 @@
     <%= csrf_meta_tags %>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Clube dos Projetos</title>
+    <title>Finding The Way Home</title>
     <meta name="description" content="{{meta_description}}" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
 </head>
-<body class="{{body_class}} nav-closed">
+<body class=" <%= 'post-template' if not current_page?('/') %> nav-closed">
 	<div class="nav">
 	    <h3 class="nav-title">Menu</h3>
 	    <a href="#" class="nav-close">
@@ -34,7 +34,7 @@
 	    <%= yield %>
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="<%= request.base_url %>">Clube dos Projetos</a> &copy; <%= Date.today.year %></section>
+            <section class="copyright"><a href="<%= request.base_url %>">Finding The Way Home</a> &copy; <%= Date.today.year %></section>
             <section class="poweredby">Desenvolvido em <a href="https://ghost.org">Ruby on Rails</a></section>
         </footer>
 

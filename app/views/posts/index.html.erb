@@ -1,4 +1,4 @@
-<header class="main-header" style="background-image: url(<%= asset_path 'cover-clube-dos-projetos.jpg' %>)">
+<header class="main-header" style="background-image: url(<%= asset_path 'home-cover.jpg' %>)">
     <div class="dark-slice-for-the-cover"></div>
     <nav class="main-nav overlay clearfix">
         <a class="blog-logo" href="<%= request.base_url %>"><img src="<%= asset_path 'logo.png' %>" alt="Clube dos Projetos" /></a>
@@ -6,8 +6,8 @@
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">Clube dos projetos</h1>
-            <h2 class="page-description">faça parte do clube mais blá blá blá do Brasil</h2>
+            <h1 class="page-title">Finding The Way Home</h1>
+            <h2 class="page-description">A beautiful narrative written with the world's most elegant publishing platform. The story begins here.</h2>
         </div>
     </div>
     <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
@@ -27,12 +27,11 @@
               <h2 class="post-title"><a href="<%= post_path(post) %>"><%= post.title %></a></h2>
           </header>
           <section class="post-excerpt">
-              <img src="<%= asset_path 'post-cover.png' %>" alt=""> 
-              <p><%= post.content %> <a class="read-more" href="{{url}}">&raquo;</a></p>
+              <p><%= truncate(strip_tags(post.content),:length => 150, :separator => ' ', :omission => '') %> <a class="read-more" href="<%= post_path(post) %>">&raquo;</a></p>
           </section>
           <footer class="post-meta">
               <img class="author-thumb" src="<%= asset_path 'perfil.jpg' %>" alt="Rurik S. Pinheiro" nopin="nopin" />
-              <a href="">Rurik Pinheiro</a> em <a href="#">Arquitetura</a>  
+              <a href="">Rurik Pinheiro</a>
               <time class="post-date" ><%= post.created_at.strftime("%d/%m/%Y - %H:%M")%></time>
           </footer>
       </article>
