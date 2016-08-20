@@ -4,7 +4,10 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.page(1).per(5)
+  end
+
+  def page
   end
 
   # GET /posts/1

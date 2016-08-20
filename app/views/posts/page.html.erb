@@ -1,0 +1,23 @@
+<header class="main-header post-head <%= 'no-cover' if @post.image.blank? %>" style="<%= 'background-image: url('+ asset_path(@post.image) +')' if not @post.image.blank? %>" >
+    <nav class="main-nav clearfix">
+        <a class="blog-logo" href="<%= request.base_url %>"><img src="<%= asset_path 'logo.png' %>" alt="Clube dos Projetos" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main id="content" class="content" role="main">
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title"><%= @post.title %></h1>
+	        <section class="post-meta">
+	        	<time class="post-date"><%= @post.created_at.strftime('%d/%m/%Y %H:%M') %></time>
+	        </section>
+        </header>
+    	<section class="post-content">
+    	    <%= render html: @post.content.html_safe %>
+    	</section>
+        <footer class="post-footer">
+            
+        </footer>
+    </article>
+</main>
